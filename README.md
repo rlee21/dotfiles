@@ -1,1 +1,1 @@
-# config
+run command settings
