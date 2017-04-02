@@ -1,1 +1,1 @@
-Run command settings
+run command settings
