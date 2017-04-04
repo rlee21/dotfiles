@@ -1,4 +1,4 @@
-set nocompatible
+set nocompatible                
 set number                      "Line numbers
 syntax on                       "Syntax highlighting
 set encoding=utf-8
@@ -8,8 +8,16 @@ set expandtab
 set ruler
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
-set laststatus=2                "Show status bar"
+set laststatus=2                "Show statusbar"
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
+filetype off                    "required
+
+"let g:molokai_original = 1
+
+"vundle package manager 
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'vim-airline/vim-airline'
+"call vundle#end()
