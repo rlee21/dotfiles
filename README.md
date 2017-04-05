@@ -1,1 +1,1 @@
-run command settings
+configuration files
