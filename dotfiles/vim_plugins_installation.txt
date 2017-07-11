@@ -1,5 +1,11 @@
+# download vim plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+
+# install plugins using vundle
+1) vim ~/.vimrc
+2) :PluginInstall
+3) :source % <tab> <enter>
 
