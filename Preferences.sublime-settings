@@ -1,3 +1,26 @@
+/*
+### Packages to Install ###
+Material-Theme-Darker (theme)
+Predawn (color-scheme)
+BracketHighlighter
+SidebarEnhancements
+Anaconda (note separate settings)
+
+### Build Systems Setup ###
+Build Systems for Python2 and Python3
+# Python2.7
+{
+    "cmd": ["/usr/bin/python2.7", "-u", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "quiet": true
+}
+# Python3.5
+{
+    "cmd": ["/usr/local/bin/python3.5", "-u", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "quiet": true
+}
+*/
 {
     "theme": "Material-Theme-Darker.sublime-theme",
     "color_scheme": "Packages/Predawn/predawn.tmTheme",
