@@ -6,7 +6,11 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # python
-#export PYTHON=(/usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/bin/python2.7/bin:$PATH)
+alias python=python3
+#alias python=python2
 
-# added by Anaconda3 4.2.0 installer
-#export PATH="/Users/relee/anaconda3/bin:$PATH"
+# postgresql
+export PATH=/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH
+
+# added by Anaconda3 5.0.1 installer
+export PATH="/Users/relee/anaconda3/bin:$PATH"

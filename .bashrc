@@ -1,8 +1,17 @@
+#########
+# Aliases
+#########
+
+alias ll="ls -lrth"
+alias c="clear"
+
+
+
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 #export PS1="\u@\h \[\033[1;32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PS1="\u@\h: \[\033[1;36m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\u@\h: \[\033[1;36m\]\W\[\033[1;31m\]\$(parse_git_branch)\[\033[00m\] $ "
 #export PS1="\[\e[1;33m\]\u@\h: \[\e[31m\]\W\[\e[0m\] $ ";
 #export PS1="\[\033[1;33m\]\u@\h:\[\e[\033[1;34m\] \W\[\033[0m\] $ ";
 #export PS1="\[\e[33;1m\]\u@\h: \[\e[31m\]\W\[\e[0m\] $ ";
