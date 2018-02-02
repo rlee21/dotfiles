@@ -13,4 +13,4 @@ alias python=python3
 export PATH=/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH
 
 # added by Anaconda3 5.0.1 installer
-export PATH="/Users/relee/anaconda3/bin:$PATH"
+#export PATH="/Users/relee/anaconda3/bin:$PATH"
