@@ -1,5 +1,5 @@
 {
-    "auto_formatting": true,
+    "auto_formatting": false,
     "autoformat_ignore":
     [
         "E309",

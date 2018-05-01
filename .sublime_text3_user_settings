@@ -1,9 +1,11 @@
 /*
 ### Packages to Install ###
-Material-Theme-Darker (theme)
+cmd + shift + p
+Package Control: Install Package
+Theme - Dark Material (theme)
 Predawn (color-scheme)
-BracketHighlighter
-SidebarEnhancements
+#BracketHighlighter
+#SidebarEnhancements
 Anaconda (note separate settings)
 
 ### Build Systems Setup ###
@@ -14,15 +16,15 @@ Build Systems for Python2 and Python3
     "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
     "quiet": true
 }
-# Python3.5
+# Python3.6
 {
-    "cmd": ["/usr/local/bin/python3.5", "-u", "$file"],
+    "cmd": ["/usr/local/bin/python3.6", "-u", "$file"],
     "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
     "quiet": true
 }
 */
 {
-    "theme": "Material-Theme-Darker.sublime-theme",
+    "theme": "Dark-Material.sublime-theme",
     "color_scheme": "Packages/Predawn/predawn.tmTheme",
 
     "material_theme_accent_graphite": true ,
