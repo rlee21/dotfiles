@@ -1,3 +1,3 @@
-# Configuration Files
+# Dot Files
 
-Configuration files for bash and vim
+Configuration files
