@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -e
 
 # install homebrew
 echo "Installing brew..."
@@ -11,6 +12,7 @@ brew cask install sublime-text;
 brew cask install Macdown;
 brew cask install java;
 brew cask install caskroom/versions/java8; # required for kafka
+brew cask install pycharm;
 
 # brew installs
 brew install git;
