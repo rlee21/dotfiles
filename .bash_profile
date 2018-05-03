@@ -5,12 +5,18 @@ fi
 
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# python
-alias python=python3
-#alias python=python2
+##########
+# History
+##########
+export HISTCONTROL=ignoredups;
+export HISTSIZE=500000;
+export HISTFILESIZE=500000;
 
-# postgresql
-export PATH=/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH
 
-# added by Anaconda3 5.0.1 installer
-#export PATH="/Users/relee/anaconda3/bin:$PATH"
+##########
+# Color
+##########
+#export LSCOLORS="gxgxcxcxbxcxbxbxbxgxgx";
+#export LS_COLORS="di=36;40:ln=36;40:so=32;40:pi=32;40:ex=31;40:bd=32;40:cd=32;40:su=31;40:sg=31;40:tw=36;40:ow=36;40:"
+export CLICOLOR=1;
+export TERM=xterm-256color
