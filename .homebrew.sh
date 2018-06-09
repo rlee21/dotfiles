@@ -12,7 +12,7 @@ brew cask install sublime-text;
 brew cask install Macdown;
 brew cask install java;
 brew cask install caskroom/versions/java8; # required for kafka
-brew cask install pycharm;
+brew cask install pycharm-ce;
 
 # brew installs
 brew install git;
@@ -23,9 +23,9 @@ brew install wget;
 brew install tree;
 brew install postgresql;
 brew install mysql;
-brew install python3;
 brew install maven;
 brew install dos2unix;
 brew install jq;
 brew install kafka;
+brew install hive;
 
