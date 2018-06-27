@@ -1,3 +1,4 @@
+"Sets
 set nocompatible
 set encoding=utf-8
 set clipboard=unnamed
@@ -32,11 +33,15 @@ Plugin 'vim-fugitive'
 Plugin 'ctrlp.vim'
 Plugin 'nerdtree'
 "Plugin 'syntastic'
+Plugin 'vim-commentary'
 call vundle#end()
 filetype on
 
 
-"Syntastic settings
+"Plugin settings
+autocmd FileType python setlocal commentstring=#%s
+autocmd FileType sql setlocal commentstring=--%s
+autocmd FileType sh setlocal commentstring=#%s
 "let g:airline_theme='powerlineish'
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_check_on_open = 1
