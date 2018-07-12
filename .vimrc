@@ -34,6 +34,7 @@ Plugin 'ctrlp.vim'
 Plugin 'nerdtree'
 "Plugin 'syntastic'
 Plugin 'vim-commentary'
+Plugin 'surround'
 call vundle#end()
 filetype on
 
