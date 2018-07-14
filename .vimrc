@@ -19,7 +19,7 @@ set list
 syntax on
 inoremap kj <Esc>
 cnoremap kj <Esc>
-vmap '' :w !pbcopy<CR><CR>
+"vmap '' :w !pbcopy<CR><CR>
 
 
 "Vundle plugin manager
@@ -43,6 +43,9 @@ filetype on
 autocmd FileType python setlocal commentstring=#%s
 autocmd FileType sql setlocal commentstring=--%s
 autocmd FileType sh setlocal commentstring=#%s
+autocmd FileType markdown setlocal commentstring=<!--\ %s\ -->
+autocmd FileType html setlocal commentstring=<!--\ %s\ -->
+autocmd FileType javascript setlocal commentstring=//%s
 "let g:airline_theme='powerlineish'
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_check_on_open = 1
