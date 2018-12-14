@@ -11,6 +11,7 @@ alias vim="/usr/local/bin/vim"
 alias hivedev="beeline -n admin -p ***** -u jdbc:hive2://hive-public-elb.nonprod.datavision.r53.nordstrom.net:443/default\;transportMode=http\;httpPath=cliservice"
 alias hiveprd="beeline -n admin -p ***** -u jdbc:hive2://ca-hive-jdbc.prod.bigdata.vip.nordstrom.com:443/default\;transportMode=http\;httpPath=cliservice\;ssl=true\;auth=nosasl"
 alias awskey="awscreds --profile default"
+alias dcu='docker rm $(docker ps -a -f status=exited -q)'
 
 
 #########################
