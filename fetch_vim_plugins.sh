@@ -1,10 +1,6 @@
-# install plugins using vundle
-1) download vim plugin using git clone
-2) add new plugin to ~/.vimrc
-3) :source % <tab> <enter>
-4) :PluginInstall
-note: :PluginClean to remove any unused plugins
+#!/bin/bash
 
+set -e
 
 # download vim plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
@@ -18,4 +14,14 @@ git clone https://github.com/tpope/vim-commentary.git ~/.vim/bundle/vim-commenta
 git clone https://tpope.io/vim/surround.git ~/.vim/bundle/surround;
 git clone https://github.com/vim-ruby/vim-ruby.git ~/.vim/bundle/vim-ruby;
 git clone https://github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails;
+
+
+
+# notes to install plugins using vundle
+# 1) download vim plugin using git clone
+# 2) add new plugin to ~/.vimrc
+# 3) :source % <tab> <enter>
+# 4) :PluginInstall
+
+# note: :PluginClean to remove any unused plugins
 

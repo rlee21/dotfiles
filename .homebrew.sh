@@ -7,15 +7,12 @@ echo "Installing homebrew..."
 
 
 CASK_PKGS=(
-    "docker"
-    "docker-toolbox"
     "iterm2"
     "homebrew/cask-versions/java8"
     "macdown"
     "postman"
     "pycharm-ce"
     "sequel-pro"
-    "sqlworkbenchj"
     "sublime-text"
 )
 
@@ -27,28 +24,25 @@ done
 
 
 PKGS=(
+    "tmux"
     "apache-spark"
     "avro-tools"
-    "awscli"
     "dos2unix"
-    "hadoop"
-    "heroku"
-    "hive"
+    "heroku/brew/heroku"
     "jq"
-    "kafka"
     "maven"
+    "zookeeper"
+    "kafka"
     "mysql"
     "node"
     "parquet-tools"
     "postgresql"
     "python@2"
-    "python3"
-    "ruby"
     "scala"
-    "tmux"
     "tree"
-    "vim"
     "wget"
+    "reattach-to-user-namespace"
+    "rbenv"
 )
 
 for PKG in "${PKGS[@]}"

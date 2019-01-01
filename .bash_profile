@@ -1,20 +1,12 @@
 
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
-fi
+if [ -f ~/.bashrc ]; then source ~/.bashrc fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #########################
 # Environmental Variables
 #########################
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=~/.local/bin:$PATH
-export REDSHIFT='*****'
-export TWITTER_KEY='*****'
-export TWITTER_SECRET='*****'
-export TWITTER_TOKEN='*****'
-export TWITTER_TOKEN_SECRET='*****'
-export HCAT_HOME=/usr/local/opt/hive/libexec/hcatalog
-
 
 #########################
 # History
@@ -22,7 +14,6 @@ export HCAT_HOME=/usr/local/opt/hive/libexec/hcatalog
 export HISTCONTROL=ignoredups;
 export HISTSIZE=500000;
 export HISTFILESIZE=500000;
-
 
 #########################
 # Color
@@ -33,12 +24,3 @@ export TERM=xterm-256color
 #export LS_COLORS="di=36;40:ln=36;40:so=32;40:pi=32;40:ex=31;40:bd=32;40:cd=32;40:su=31;40:sg=31;40:tw=36;40:ow=36;40:"
 
 
-#########################
-# Airflow
-#########################
-export ENVIRONMENT=local
-export AIRFLOW_TAG=development
-export AIRFLOW_DAGS_FOLDER=~/bitbucket/airflow/dags
-#export AIRFLOW_SCRIPTS_REPO_NAME=airflow
-export AIRFLOW_SCRIPTS_FOLDER=~/bitbucket/airflow/hsql
-export AIRFLOW_QUEUES='shared,dsfredshift,admin-default,dsmdw-default,dsscdm-default'
