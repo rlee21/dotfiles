@@ -7,7 +7,7 @@ alias lo="logout"
 alias t="tmux"
 alias python="python3"
 alias gst="git status"
-# alias vim="/usr/local/bin/vim"
+alias vim="/usr/local/bin/vim"
 alias dcu='docker rm $(docker ps -a -f status=exited -q)'
 
 #########################
