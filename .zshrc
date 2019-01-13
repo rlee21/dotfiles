@@ -9,7 +9,7 @@ zstyle ':vcs_info:*' unstagedstr '✗'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' actionformats '%F{red}(%F{red}%b%F{red}|%F{red}%a%F{red})%f '
 zstyle ':vcs_info:*' formats \
-  '%F{red}(%F{red}%b%F{red}) %F{green}%c%F{cyan}%u%f'
+  '%F{red}(%F{red}%b%F{red}) %F{cyan}%c%F{green}%u%f'
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 +vi-git-untracked() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
@@ -18,7 +18,8 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
   fi
 }
 precmd () { vcs_info }
-PROMPT='%F{green}[%F{green}%n@%m%F{green}] %F{cyan}%3~ %F${vcs_info_msg_0_} %f%# '
+PROMPT='%F{cyan}[%F{cyan}%n@%m%F{cyan}] %F{green}%3~ %F${vcs_info_msg_0_} %f%# '
+
 #########################
 # Color
 #########################
@@ -49,7 +50,7 @@ alias c="clear"
 alias lo="logout"
 alias t="tmux"
 alias python="python3"
-alias gst="git status"
+alias gs="git status"
 alias dcu='docker rm $(docker ps -a -f status=exited -q)'
 
 #########################
