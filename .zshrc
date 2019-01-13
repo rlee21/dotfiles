@@ -51,7 +51,10 @@ alias lo="logout"
 alias t="tmux"
 alias python="python3"
 alias gs="git status"
-alias dcu='docker rm $(docker ps -a -f status=exited -q)'
+alias ga="git add --all ."
+alias gd="git diff"
+alias gl="git log"
+alias dc='docker rm $(docker ps -a -f status=exited -q)'
 
 #########################
 # History
@@ -79,7 +82,13 @@ function gc {
 }
 
 #########################
-# rbenv
+# Misc
 #########################
+# Case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# Advanced tab completion
+autoload -U compinit
+compinit
+# rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
 
