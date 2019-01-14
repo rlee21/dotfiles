@@ -23,10 +23,12 @@ PROMPT='%F{cyan}[%F{cyan}%n@%m%F{cyan}] %F{green}%3~ %F${vcs_info_msg_0_} %f%# '
 #########################
 # Color
 #########################
-# use 256 term for better colors
-export TERM=xterm-256color
 # enable colored output from ls, etc. on FreeBSD-based systems
 export CLICOLOR=1
+# use 256 term for better colors
+export TERM=xterm-256color
+# export LSCOLORS="gxgxcxcxbxcxbxbxbxgxgx"
+# export LS_COLORS="di=36;40:ln=36;40:so=32;40:pi=32;40:ex=31;40:bd=32;40:cd=32;40:su=31;40:sg=31;40:tw=36;40:ow=36;40:"
 
 #########################
 # Environment Variables
