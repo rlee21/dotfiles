@@ -7,18 +7,24 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' stagedstr '✗'
 zstyle ':vcs_info:*' unstagedstr '✗'
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' actionformats '%F{red}(%F{red}%b%F{red}|%F{red}%a%F{red})%f '
+# zstyle ':vcs_info:*' actionformats '%F{cyan}(%F{cyan}%b%F{cyan}|%F{cyan}%a%F{cyan})%f '
+zstyle ':vcs_info:*' actionformats '%F{white}(%F{white}%b%F{white}|%F{white}%a%F{white})%f '
 zstyle ':vcs_info:*' formats \
-  '%F{red}(%F{red}%b%F{red}) %F{cyan}%c%F{green}%u%f'
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-+vi-git-untracked() {
-  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-    git status --porcelain | grep '??' &> /dev/null ; then
-    hook_com[unstaged]+='%F{red}??%f'
-  fi
-}
+           '%F{white}(%F{white}%b%F{white}) %F{white}%c%F{green}%u%f'
+# '%F{cyan}(%F{cyan}%b%F{cyan}) %F{cyan}%c%F{green}%u%f'
+           zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+           +vi-git-untracked() {
+               if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+                   git status --porcelain | grep '?' &> /dev/null ; then
+                       hook_com[unstaged]+='%F{green}?%f'
+                       fi
+           }
 precmd () { vcs_info }
-PROMPT='%F{cyan}[%F{cyan}%n@%m%F{cyan}] %F{green}%3~ %F${vcs_info_msg_0_} %f%# '
+# PROMPT='%F{cyan}[%F{cyan}%n@$HOST] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%# '
+PROMPT='%F{white}[%F{white}%n@$HOST] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%# '
+# PROMPT='%F{cyan}[%F{cyan}%n@%m%F{cyan}] %F{green}%3~ %F${vcs_info_msg_0_} %f%# '
+# PROMPT='%F{cyan}[%F{cyan}%n@$HOST] %c%F{green} %F${vcs_info_msg_0_} %f%# '
+# PROMPT='%F{white}[%F{white}%n@$HOST] %c%F{green} %F${vcs_info_msg_0_} %f%# '
 
 #########################
 # Color
@@ -27,8 +33,6 @@ PROMPT='%F{cyan}[%F{cyan}%n@%m%F{cyan}] %F{green}%3~ %F${vcs_info_msg_0_} %f%# '
 export CLICOLOR=1
 # use 256 term for better colors
 export TERM=xterm-256color
-# export LSCOLORS="gxgxcxcxbxcxbxbxbxgxgx"
-# export LS_COLORS="di=36;40:ln=36;40:so=32;40:pi=32;40:ex=31;40:bd=32;40:cd=32;40:su=31;40:sg=31;40:tw=36;40:ow=36;40:"
 
 #########################
 # Environment Variables
@@ -61,10 +65,10 @@ alias dc='docker rm $(docker ps -a -f status=exited -q)'
 #########################
 # History
 #########################
-export HISTCONTROL=ignoredups
-export HISTSIZE=500000
-export HISTFILESIZE=500000
-
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt appendhistory
 #########################
 # Functions
 #########################
@@ -80,7 +84,7 @@ function finddir {
 }
 # Allows commit message without typing quotes (can't have quotes in the commit msg though).
 function gc {
-  git commit -m "$*"
+    git commit -m "$*"
 }
 
 #########################
