@@ -42,24 +42,25 @@ Plugin 'tpope/vim-fugitive'             "git
 Plugin 'ctrlpvim/ctrlp.vim'             "fuzzy finder
 Plugin 'scrooloose/nerdtree'            "folder tree
 Plugin 'vim-syntastic/syntastic'        "syntax checker
-Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-commentary'           "commenting blocks of code
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/surround'
-Plugin 'MarcWeber/vim-addon-mw-utils'   " SnipMate dependency
-Plugin 'tomtom/tlib_vim'                " SnipMate dependency
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'dsfcode/hive.vim.git'          " Hive syntax highlighting
+Plugin 'MarcWeber/vim-addon-mw-utils'   "SnipMate dependency
+Plugin 'tomtom/tlib_vim'                "SnipMate dependency
+Plugin 'garbas/vim-snipmate'            "code snippet with tab completion
+Plugin 'honza/vim-snippets'             "code snippet with tab completion
+Plugin 'dsfcode/hive.vim.git'           "syntax highlighting for Hive
+Plugin 'nanotech/jellybeans.vim'        "type of color scheme
 call vundle#end()
 filetype on
 
 "################################
 " Plugin settings
 "################################
+colorscheme jellybeans
 " colorscheme predawn
 " colorscheme badwolf
-colorscheme jellybeans
 " colorscheme jellygrass
 " colorscheme solarized8_high
 " colorscheme gruvbox
@@ -67,6 +68,7 @@ colorscheme jellybeans
 autocmd FileType python setlocal commentstring=#%s
 autocmd FileType ruby setlocal commentstring=#%s
 autocmd FileType sql setlocal commentstring=--%s
+autocmd FileType hive setlocal commentstring=--%s
 autocmd FileType sh setlocal commentstring=#%s
 autocmd FileType markdown setlocal commentstring=<!--\ %s\ -->
 autocmd FileType html setlocal commentstring=<!--\ %s\ -->
