@@ -20,11 +20,11 @@ zstyle ':vcs_info:*' formats \
                        fi
            }
 precmd () { vcs_info }
-# PROMPT='%F{cyan}[%F{cyan}%n@$HOST] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%# '
-PROMPT='%F{white}[%F{white}%n@$HOST] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%# '
-# PROMPT='%F{cyan}[%F{cyan}%n@%m%F{cyan}] %F{green}%3~ %F${vcs_info_msg_0_} %f%# '
-# PROMPT='%F{cyan}[%F{cyan}%n@$HOST] %c%F{green} %F${vcs_info_msg_0_} %f%# '
-# PROMPT='%F{white}[%F{white}%n@$HOST] %c%F{green} %F${vcs_info_msg_0_} %f%# '
+PROMPT='%F{white}[%F{white}%n@%m] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%# '
+# # PROMPT='%F{cyan}[%F{cyan}%n@$HOST] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%# '
+# # PROMPT='%F{cyan}[%F{cyan}%n@%m%F{cyan}] %F{green}%3~ %F${vcs_info_msg_0_} %f%# '
+# # PROMPT='%F{cyan}[%F{cyan}%n@$HOST] %c%F{green} %F${vcs_info_msg_0_} %f%# '
+# # PROMPT='%F{white}[%F{white}%n@$HOST] %c%F{green} %F${vcs_info_msg_0_} %f%# '
 
 #########################
 # Color
@@ -33,20 +33,10 @@ PROMPT='%F{white}[%F{white}%n@$HOST] %F{green}%c%F{green} %F${vcs_info_msg_0_} %
 export CLICOLOR=1
 # use 256 term for better colors
 export TERM=xterm-256color
-
-#########################
-# Environment Variables
-#########################
-# export EDITOR='vim'
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH="${HOME}/.bin:${PATH}"
-export PATH=~/.local/bin:$PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
-# export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export DB_HOST=127.0.0.1
-export DB_PORT=3306
-export DB_USER=root
-export DB_PASS=root
+# # dark mode
+# echo -e "\033]6;1;bg;red;brightness;40\a";
+# echo -e "\033]6;1;bg;green;brightness;44\a";
+# echo -e "\033]6;1;bg;blue;brightness;52\a";
 
 #########################
 # Aliases
@@ -63,12 +53,31 @@ alias gl="git log"
 alias dc='docker rm $(docker ps -a -f status=exited -q)'
 
 #########################
+# Environment Variables
+#########################
+export DB_HOST=127.0.0.1
+export DB_PORT=3306
+export DB_USER=root
+export DB_PASS=root
+# export EDITOR='vim'
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH="${HOME}/.bin:${PATH}"
+export PATH=~/.local/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+# export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+#########################
 # History
 #########################
+# HISTFILE=~/.zsh_history
+# HISTSIZE=50000
+# SAVEHIST=50000
+# setopt appendhistory
+HISTSIZE=20000
 HISTFILE=~/.zsh_history
-HISTSIZE=50000
-SAVEHIST=50000
-setopt appendhistory
+SAVEHIST=20000
+
 #########################
 # Functions
 #########################
