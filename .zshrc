@@ -107,3 +107,5 @@ compinit
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -2,6 +2,8 @@
 " Setup
 "################################
 set nocompatible
+" set ttyfast
+" set lazyredraw
 set encoding=utf-8
 set clipboard=unnamed
 set tabstop=4
@@ -24,8 +26,11 @@ syntax on
 inoremap kj <Esc>
 cnoremap kj <Esc>
 let mapleader = ","
-nmap <leader>n :NERDTree<cr>
-nmap <leader>p :CtrlP<cr>
+map <leader>n :NERDTree<cr>
+map <Leader>w <C-w>w
+map <leader>p :CtrlP<cr>
+map <leader>f :Files<cr>
+map <leader>g :Ag<cr>
 " change word using current paste buffer (requires cursor at start of word before pasting)
 " yw vep OR yw cw<C-r>0<ESC>
 
@@ -40,10 +45,12 @@ Plugin 'vim-airline/vim-airline'        "status bar
 Plugin 'vim-airline/vim-airline-themes' "status bar themes
 Plugin 'tpope/vim-fugitive'             "git
 Plugin 'ctrlpvim/ctrlp.vim'             "fuzzy finder
+Plugin 'junegunn/fzf'                   "fuzzy finder
+Plugin 'junegunn/fzf.vim'               "fuzzy finder
 Plugin 'scrooloose/nerdtree'            "folder tree
 Plugin 'vim-syntastic/syntastic'        "syntax checker
 Plugin 'tpope/vim-commentary'           "commenting blocks of code
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/surround'
 Plugin 'MarcWeber/vim-addon-mw-utils'   "SnipMate dependency
