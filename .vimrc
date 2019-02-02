@@ -39,7 +39,7 @@ let g:syntastic_error_symbol = "✗"
 let g:syntastic_check_on_wq = 0
 
 "################################
-" Setup
+" Appearance
 "################################
 syntax on
 colorscheme jellybeans
@@ -62,12 +62,13 @@ set listchars=tab:>·,trail:·    "make tabs and trailing spaces visible
 " set grepprg=rg                  "use ripgrep instead of instead of grep
 set lazyredraw                  "prevent redraw while executing macros
 set list
-set noswapfile | set nowritebackup | set nobackup " Make vim run faster by turning off swap files/backup
+set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
+highlight colorcolumn ctermbg=grey
+call matchadd('colorcolumn', '\%80v', 100) "set colorcolumn highlight for 80th character
 
 "################################
 " Auto Commands
 "################################
-autocmd FileType python,ruby,javascript setlocal colorcolumn=80
 autocmd FileType python setlocal commentstring=#%s
 autocmd FileType ruby setlocal commentstring=#%s
 autocmd FileType sql setlocal commentstring=--%s
