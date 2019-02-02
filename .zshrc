@@ -7,11 +7,9 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' stagedstr '✗'
 zstyle ':vcs_info:*' unstagedstr '✗'
 zstyle ':vcs_info:*' check-for-changes true
-# zstyle ':vcs_info:*' actionformats '%F{cyan}(%F{cyan}%b%F{cyan}|%F{cyan}%a%F{cyan})%f '
 zstyle ':vcs_info:*' actionformats '%F{white}(%F{white}%b%F{white}|%F{white}%a%F{white})%f '
 zstyle ':vcs_info:*' formats \
            '%F{white}(%F{white}%b%F{white}) %F{white}%c%F{green}%u%f'
-# '%F{cyan}(%F{cyan}%b%F{cyan}) %F{cyan}%c%F{green}%u%f'
            zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
            +vi-git-untracked() {
                if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
@@ -21,10 +19,6 @@ zstyle ':vcs_info:*' formats \
            }
 precmd () { vcs_info }
 PROMPT='%F{white}[%F{white}%n@%m] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%# '
-# # PROMPT='%F{cyan}[%F{cyan}%n@$HOST] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%# '
-# # PROMPT='%F{cyan}[%F{cyan}%n@%m%F{cyan}] %F{green}%3~ %F${vcs_info_msg_0_} %f%# '
-# # PROMPT='%F{cyan}[%F{cyan}%n@$HOST] %c%F{green} %F${vcs_info_msg_0_} %f%# '
-# # PROMPT='%F{white}[%F{white}%n@$HOST] %c%F{green} %F${vcs_info_msg_0_} %f%# '
 
 #########################
 # Color
@@ -33,21 +27,18 @@ PROMPT='%F{white}[%F{white}%n@%m] %F{green}%c%F{green} %F${vcs_info_msg_0_} %f%#
 export CLICOLOR=1
 # use 256 term for better colors
 export TERM=xterm-256color
-# # dark mode
-# echo -e "\033]6;1;bg;red;brightness;40\a";
-# echo -e "\033]6;1;bg;green;brightness;44\a";
-# echo -e "\033]6;1;bg;blue;brightness;52\a";
 
 #########################
 # Aliases
 #########################
 alias ll="ls -lrth"
-alias c="clear"
+# alias c="clear"
 alias lo="logout"
 alias t="tmux"
 alias python="python3"
 alias gs="git status"
 alias ga="git add --all ."
+alias gp="git push"
 alias gd="git diff"
 alias gl="git log"
 alias dc='docker rm $(docker ps -a -f status=exited -q)'
@@ -70,10 +61,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 #########################
 # History
 #########################
-# HISTFILE=~/.zsh_history
-# HISTSIZE=50000
-# SAVEHIST=50000
-# setopt appendhistory
 HISTSIZE=20000
 HISTFILE=~/.zsh_history
 SAVEHIST=20000
@@ -96,6 +83,11 @@ function gc {
     git commit -m "$*"
 }
 
+# attach to tmux session
+function ta {
+    tmux a -t "*${1}*"
+}
+
 #########################
 # Misc
 #########################
@@ -106,6 +98,6 @@ autoload -U compinit
 compinit
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
-
-
+# fzf fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
