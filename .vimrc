@@ -8,7 +8,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'        "status bar
 Plugin 'vim-airline/vim-airline-themes' "status bar themes
 Plugin 'tpope/vim-fugitive'             "git
-" Plugin 'ctrlpvim/ctrlp.vim'             "fuzzy finder
 Plugin 'junegunn/fzf'                   "fuzzy finder
 Plugin 'junegunn/fzf.vim'               "fuzzy finder
 Plugin 'scrooloose/nerdtree'            "folder tree
@@ -59,7 +58,6 @@ set showcmd                     "show incomplete cmds down the bottom
 set gcr=a:blinkon0              "disable cursor blink
 set visualbell                  "no sounds"
 set listchars=tab:>·,trail:·    "make tabs and trailing spaces visible
-" set grepprg=rg                  "use ripgrep instead of instead of grep
 set lazyredraw                  "prevent redraw while executing macros
 set list
 set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
@@ -87,7 +85,6 @@ let mapleader = ","
 map <leader>n :NERDTree<cr>
 map <Leader>w <C-w>w
 " map <leader>p :CtrlP<cr>
-map <leader>p :Files<cr>
-" yw vep OR yw cw<C-r>0<ESC> - change word using current paste buffer (requires cursor at start of word before pasting)
-
+map <leader>f :Files<cr>
+" yw vep OR yw cw<C-r>0<ESC> to change word using current paste buffer (cursor must be start of word)
 
