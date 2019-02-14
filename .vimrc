@@ -77,14 +77,13 @@ autocmd FileType html setlocal commentstring=<!--\ %s\ -->
 autocmd FileType javascript setlocal commentstring=//%s
 
 "################################
-" Key Mappings
+" Key Bindings
 "################################
 inoremap kj <Esc>
 cnoremap kj <Esc>
 let mapleader = ","
 map <leader>n :NERDTree<cr>
 map <Leader>w <C-w>w
-" map <leader>p :CtrlP<cr>
-map <leader>f :Files<cr>
+map <leader>, :Files<cr>
 " yw vep OR yw cw<C-r>0<ESC> to change word using current paste buffer (cursor must be start of word)
 
