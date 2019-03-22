@@ -21,9 +21,11 @@ Plugin 'tomtom/tlib_vim'                "SnipMate dependency
 Plugin 'garbas/vim-snipmate'            "code snippet with tab completion
 Plugin 'honza/vim-snippets'             "code snippet with tab completion
 Plugin 'dsfcode/hive.vim.git'           "syntax highlighting for Hive
-Plugin 'nanotech/jellybeans.vim'        "color scheme
+Plugin 'morhetz/gruvbox'                "color scheme
 Plugin 'slim-template/vim-slim.git'     "syntax highlighting for slim
 Plugin 'rizzatti/dash.vim'              "search terms in docs browser app Dash
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
 filetype on
 
@@ -36,12 +38,14 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_check_on_wq = 0
+hi link coffeeSemicolonError NONE       "disable trailing semicolon errors
 
 "################################
 " Appearance
 "################################
 syntax on
-colorscheme jellybeans
+colorscheme gruvbox
+set background=dark             "Setting dark mode
 set showmode
 set tabstop=4
 set shiftwidth=4
@@ -61,20 +65,18 @@ set listchars=tab:>·,trail:·    "make tabs and trailing spaces visible
 set lazyredraw                  "prevent redraw while executing macros
 set list
 set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
-highlight colorcolumn ctermbg=grey
-call matchadd('colorcolumn', '\%80v', 100) "set colorcolumn highlight for 80th character
+" highlight colorcolumn ctermbg=grey
+" call matchadd('colorcolumn', '\%80v', 100) "set colorcolumn highlight for 80th character
 
 "################################
 " Auto Commands
 "################################
-autocmd FileType python setlocal commentstring=#%s
-autocmd FileType ruby setlocal commentstring=#%s
-autocmd FileType sql setlocal commentstring=--%s
-autocmd FileType hive setlocal commentstring=--%s
-autocmd FileType sh setlocal commentstring=#%s
-autocmd FileType markdown setlocal commentstring=<!--\ %s\ -->
-autocmd FileType html setlocal commentstring=<!--\ %s\ -->
+autocmd FileType python,ruby,javascript setlocal colorcolumn=80 "set colorcolumn highlight for 80th character
+autocmd FileType python,ruby,sh setlocal commentstring=#%s
 autocmd FileType javascript setlocal commentstring=//%s
+autocmd FileType sql,hive setlocal commentstring=--%s
+autocmd FileType html,markdown setlocal commentstring=<!--\ %s\ -->
+autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
 "################################
 " Key Bindings
@@ -85,5 +87,10 @@ let mapleader = ","
 map <leader>n :NERDTree<cr>
 map <Leader>w <C-w>w
 map <leader>, :Files<cr>
+map <leader>g :Rg<cr>
+map <leader>m :Emodel<cr>
+map <leader>v :Eview<cr>
+map <leader>c :Econtroller<cr>
+map <leader>t :Eunittest<cr>
 " yw vep OR yw cw<C-r>0<ESC> to change word using current paste buffer (cursor must be start of word)
 
