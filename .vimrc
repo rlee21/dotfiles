@@ -23,7 +23,6 @@ Plugin 'honza/vim-snippets'             "code snippet with tab completion
 Plugin 'dsfcode/hive.vim.git'           "syntax highlighting for Hive
 Plugin 'morhetz/gruvbox'                "color scheme
 Plugin 'slim-template/vim-slim.git'     "syntax highlighting for slim
-Plugin 'rizzatti/dash.vim'              "search terms in docs browser app Dash
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
@@ -38,14 +37,14 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_check_on_wq = 0
-hi link coffeeSemicolonError NONE       "disable trailing semicolon errors
+hi link coffeeSemicolonError NONE
 
 "################################
 " Appearance
 "################################
 syntax on
 colorscheme gruvbox
-set background=dark             "Setting dark mode
+set background=dark
 set showmode
 set tabstop=4
 set shiftwidth=4
@@ -56,17 +55,17 @@ set encoding=utf-8
 set nocompatible
 set clipboard=unnamed
 set ruler
-set laststatus=2                "show status bar"
-set backspace=indent,eol,start  "allow backspace in insert mode
-set showcmd                     "show incomplete cmds down the bottom
-set gcr=a:blinkon0              "disable cursor blink
-set visualbell                  "no sounds"
-set listchars=tab:>·,trail:·    "make tabs and trailing spaces visible
-set lazyredraw                  "prevent redraw while executing macros
+set laststatus=2                                  "show status bar"
+set backspace=indent,eol,start                    "allow backspace in insert mode
+set showcmd                                       "show incomplete cmds down the bottom
+set gcr=a:blinkon0                                "disable cursor blink
+set visualbell                                    "no sounds"
+set listchars=tab:>·,trail:·                      "make tabs and trailing spaces visible
+set lazyredraw                                    "prevent redraw while executing macros
 set list
 set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
 " highlight colorcolumn ctermbg=grey
-" call matchadd('colorcolumn', '\%80v', 100) "set colorcolumn highlight for 80th character
+" call matchadd('colorcolumn', '\%80v', 100)      "set colorcolumn highlight for 80th character
 
 "################################
 " Auto Commands
