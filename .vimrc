@@ -12,7 +12,9 @@ Plugin 'junegunn/fzf'                   "fuzzy finder
 Plugin 'junegunn/fzf.vim'               "fuzzy finder
 Plugin 'scrooloose/nerdtree'            "folder tree
 Plugin 'vim-syntastic/syntastic'        "syntax checker
-" Plugin 'w0rp/ale'                       "syntax checker
+Plugin 'w0rp/ale'                       "syntax checker
+Plugin 'mattn/emmet-vim'                "html and css snippets
+Plugin 'prettier/vim-prettier'          "code formatter
 Plugin 'tpope/vim-commentary'           "commenting blocks of code
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -41,9 +43,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_check_on_wq = 0
-" let g:ale_lint_on_save = 1
-" let g:ale_lint_on_text_changed = 0
-" let g:ale_set_highlights = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_set_highlights = 0
+let g:ale_enabled = 0
 let g:jsx_ext_required = 0
 hi link coffeeSemicolonError NONE
 
@@ -73,12 +76,12 @@ set lazyredraw                                    "prevent redraw while executin
 set list
 set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
 " highlight colorcolumn ctermbg=grey
-" call matchadd('colorcolumn', '\%80v', 100)      "set colorcolumn highlight for 80th character
+call matchadd('colorcolumn', '\%80v', 100)      "set colorcolumn highlight for 80th character
 
 "################################
 " Auto Commands
 "################################
-autocmd FileType python,ruby,javascript setlocal colorcolumn=80 "set colorcolumn highlight for 80th character
+" autocmd FileType python,ruby,javascript setlocal colorcolumn=80 "set colorcolumn highlight for 80th character
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType python,ruby,sh setlocal commentstring=#%s
 autocmd FileType javascript setlocal commentstring=//%s
@@ -96,6 +99,7 @@ map <leader>n :NERDTree<cr>
 map <Leader>w <C-w>w
 map <leader>, :Files<cr>
 map <leader>g :Rg<cr>
+map <leader>a :ALEToggle<cr>
 map <leader>m :Emodel<cr>
 map <leader>v :Eview<cr>
 map <leader>c :Econtroller<cr>
