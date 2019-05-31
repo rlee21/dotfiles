@@ -32,7 +32,6 @@ export TERM=xterm-256color
 # Aliases
 #########################
 alias ll="ls -lrth"
-# alias c="clear"
 alias lo="logout"
 alias t="tmux"
 alias python="python3"
@@ -42,6 +41,11 @@ alias gp="git push"
 alias gd="git diff"
 alias gl="git log"
 alias dc='docker rm $(docker ps -a -f status=exited -q)'
+alias tst="ssh cg1test"
+alias wow="ssh cg2wow"
+alias be="bundle exec"
+alias bi="bundle install"
+alias yi="yarn install"
 
 #########################
 # Environment Variables
