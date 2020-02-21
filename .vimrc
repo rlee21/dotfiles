@@ -99,10 +99,15 @@ map <leader>n :NERDTree<cr>
 map <Leader>w <C-w>w
 map <leader>, :Files<cr>
 map <leader>g :Rg<cr>
+map <leader>gb :Gblame<cr>
 map <leader>a :ALEToggle<cr>
 map <leader>m :Emodel<cr>
 map <leader>v :Eview<cr>
 map <leader>c :Econtroller<cr>
-map <leader>t :Eunittest<cr>
-" yw vep OR yw cw<C-r>0<ESC> to change word using current paste buffer (cursor must be start of word)
-
+" map <leader>t :Eunittest<cr>
+map <leader>t <C-]><cr>
+map <leader>s /\c
+map <leader>d orequire 'pry'; binding.pry<esc>:w<cr>
+map <leader>r :!ruby %<cr>
+set tags=~/code/tags
+" ctags -R --exclude=.git --exclude=log --exclude="*.js" --exclude="*.sql" --exclude="*.py" *

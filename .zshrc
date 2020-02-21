@@ -39,29 +39,45 @@ alias gs="git status"
 alias ga="git add --all ."
 alias gp="git push"
 alias gd="git diff"
-alias gl="git log"
+alias gl="git log --oneline"
 alias dc='docker rm $(docker ps -a -f status=exited -q)'
 alias tst="ssh cg1test"
 alias wow="ssh cg2wow"
 alias be="bundle exec"
 alias bi="bundle install"
 alias yi="yarn install"
+alias gcc='gcc-9'
+alias rge='rg -i --iglob !'\''*.yml'\'' --iglob !'\''*.sql'\'' --iglob !'\''*test*'\'
 
 #########################
 # Environment Variables
 #########################
+export EDITOR='vim'
 export DB_HOST=127.0.0.1
 export DB_PORT=3306
 export DB_USER=root
 export DB_PASS=root
-# export EDITOR='vim'
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH="${HOME}/.bin:${PATH}"
 export PATH=~/.local/bin:$PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
 # export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 # export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+# export PATH=“/usr/local/opt/qt@5.5/bin:$PATH”
 
+export KAFKA_HOSTS=localhost:9092
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+# open ssl paths
+# export PATH="/usr/local/opt/openssl/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/openssl/lib"
+# export CPPFLAGS="-I/usr/local/opt/openssl/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+# export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+# export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+# export PKG_CONFIG_PATH="PKG_CONFIG_PATH:/usr/local/opt/openssl@1.1/lib/pkgconfig"
+# export NVM_DIR="$HOME/.nvm"
+#   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 #########################
 # History
 #########################
@@ -95,13 +111,17 @@ function ta {
 #########################
 # Misc
 #########################
+# Emacs Key Bindings
+bindkey -e
 # Case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Advanced tab completion
 autoload -U compinit
 compinit
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
+for f in ~/code/k8s-helpers/*.sh; do source $f; done
 # fzf fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
