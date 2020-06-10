@@ -48,6 +48,7 @@ alias bi="bundle install"
 alias yi="yarn install"
 alias gcc='gcc-9'
 alias rge='rg -i --iglob !'\''*.yml'\'' --iglob !'\''*.sql'\'' --iglob !'\''*test*'\'
+alias ks='k8s-get-secret mysql-root-password'
 
 #########################
 # Environment Variables
@@ -56,7 +57,8 @@ export EDITOR='vim'
 export DB_HOST=127.0.0.1
 export DB_PORT=3306
 export DB_USER=root
-export DB_PASS=root
+# export DB_PASS=root
+export DB_PASS=$(kubectl get -n $(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null) secret/mysql-root-password -o json | jq -r .data.value | base64 --decode)
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH="${HOME}/.bin:${PATH}"
 export PATH=~/.local/bin:$PATH
@@ -106,6 +108,25 @@ function gc {
 # attach to tmux session
 function ta {
     tmux a -t "*${1}*"
+}
+# kubectl cmd to get pods
+function kp {
+  kubectl get pods | grep "${1}"
+}
+
+# kubectl cmd to tail logs
+function kl {
+  kubectl logs -f "${1}"
+}
+
+# kubectl cmd to shell into container
+function ke {
+  kubectl exec -it "${1}" sh
+}
+
+# kubectl for mysql port forwarding
+function kf {
+    kubectl -n "${1}" port-forward pod/mysql-0 3306:3306
 }
 
 #########################
