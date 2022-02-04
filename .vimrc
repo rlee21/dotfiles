@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'        "status bar
 Plugin 'vim-airline/vim-airline-themes' "status bar themes
 Plugin 'tpope/vim-fugitive'             "git
+Plugin 'tpope/vim-rhubarb'              "git browse handler
 Plugin 'junegunn/fzf'                   "fuzzy finder
 Plugin 'junegunn/fzf.vim'               "fuzzy finder
 Plugin 'scrooloose/nerdtree'            "folder tree
@@ -48,6 +49,7 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_set_highlights = 0
 let g:ale_enabled = 0
 let g:jsx_ext_required = 0
+let g:github_enterprise_urls = ['https://github.com']
 hi link coffeeSemicolonError NONE
 
 "################################
@@ -61,6 +63,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set number relativenumber
+set wildmenu
 set history=1000
 set encoding=utf-8
 set nocompatible
@@ -100,14 +103,16 @@ map <Leader>w <C-w>w
 map <leader>, :Files<cr>
 map <leader>g :Rg<cr>
 map <leader>gb :Gblame<cr>
+map <leader>go :Gbrowse<cr>
 map <leader>a :ALEToggle<cr>
 map <leader>m :Emodel<cr>
 map <leader>v :Eview<cr>
 map <leader>c :Econtroller<cr>
 " map <leader>t :Eunittest<cr>
-map <leader>t <C-]><cr>
+map <leader>ct <C-]><cr>
 map <leader>s /\c
-map <leader>d orequire 'pry'; binding.pry<esc>:w<cr>
-map <leader>r :!ruby %<cr>
+map <leader>d orequire 'pry'; binding.pry<esc>==<cr>
+map <leader>t :!bundle exec ruby -I "test" %<cr>
+map <leader>tr :!bundle exec rspec %<cr>
 set tags=~/code/tags
 " ctags -R --exclude=.git --exclude=log --exclude="*.js" --exclude="*.sql" --exclude="*.py" *

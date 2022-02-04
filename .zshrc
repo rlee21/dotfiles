@@ -34,7 +34,7 @@ export TERM=xterm-256color
 alias ll="ls -lrth"
 alias lo="logout"
 alias t="tmux"
-alias python="python3"
+# alias python="python3"
 alias gs="git status"
 alias ga="git add --all ."
 alias gp="git push"
@@ -48,14 +48,15 @@ alias bi="bundle install"
 alias yi="yarn install"
 alias gcc='gcc-9'
 alias rge='rg -i --iglob !'\''*.yml'\'' --iglob !'\''*.sql'\'' --iglob !'\''*test*'\'
-alias ks='k8s-get-secret mysql-root-password'
+# alias ks='k8s-get-secret mysql-root-password'
 
 #########################
 # Environment Variables
 #########################
 export EDITOR='vim'
 export DB_HOST=127.0.0.1
-export DB_PORT=3306
+# export DB_PORT=3306
+export DB_PORT=13306
 export DB_USER=root
 # export DB_PASS=root
 export DB_PASS=$(kubectl get -n $(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null) secret/mysql-root-password -o json | jq -r .data.value | base64 --decode)
@@ -77,9 +78,10 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 # export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 # export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 # export PKG_CONFIG_PATH="PKG_CONFIG_PATH:/usr/local/opt/openssl@1.1/lib/pkgconfig"
-# export NVM_DIR="$HOME/.nvm"
-#   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-#   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 #########################
 # History
 #########################
@@ -109,25 +111,26 @@ function gc {
 function ta {
     tmux a -t "*${1}*"
 }
+
 # kubectl cmd to get pods
-function kp {
-  kubectl get pods | grep "${1}"
-}
+# function kp {
+#   kubectl get pods | grep "${1}"
+# }
 
 # kubectl cmd to tail logs
-function kl {
-  kubectl logs -f "${1}"
-}
+# function kl {
+#   kubectl logs -f "${1}"
+# }
 
 # kubectl cmd to shell into container
-function ke {
-  kubectl exec -it "${1}" sh
-}
+# function ke {
+#   kubectl exec -it "${1}" sh
+# }
 
 # kubectl for mysql port forwarding
-function kf {
-    kubectl -n "${1}" port-forward pod/mysql-0 3306:3306
-}
+# function kf {
+#     kubectl -n "${$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)}" port-forward pod/mysql-0 3306:3306
+# }
 
 #########################
 # Misc
@@ -146,3 +149,8 @@ for f in ~/code/k8s-helpers/*.sh; do source $f; done
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
