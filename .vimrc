@@ -21,7 +21,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'tpope/surround'
+Plugin 'tpope/vim-surround'
 Plugin 'MarcWeber/vim-addon-mw-utils'   "SnipMate dependency
 Plugin 'tomtom/tlib_vim'                "SnipMate dependency
 Plugin 'garbas/vim-snipmate'            "code snippet with tab completion
@@ -78,6 +78,7 @@ set listchars=tab:>·,trail:·                      "make tabs and trailing spac
 set lazyredraw                                    "prevent redraw while executing macros
 set list
 set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
+let g:snipMate = { 'snippet_version' : 1 }
 " highlight colorcolumn ctermbg=grey
 call matchadd('colorcolumn', '\%80v', 100)      "set colorcolumn highlight for 80th character
 
