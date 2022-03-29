@@ -38,7 +38,7 @@ filetype on
 "################################
 " Plugin Settings
 "################################
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -62,6 +62,7 @@ set showmode
 set tabstop=4
 set shiftwidth=4
 set expandtab
+" set noexpandtab
 set number relativenumber
 set wildmenu
 set history=1000
@@ -69,6 +70,7 @@ set encoding=utf-8
 set nocompatible
 set clipboard=unnamed
 set ruler
+set ignorecase | set smartcase                    "Use case insensitive search, except when using capital letters (smartcase)
 set laststatus=2                                  "show status bar"
 set backspace=indent,eol,start                    "allow backspace in insert mode
 set showcmd                                       "show incomplete cmds down the bottom
@@ -76,6 +78,7 @@ set gcr=a:blinkon0                                "disable cursor blink
 set visualbell                                    "no sounds"
 set listchars=tab:>·,trail:·                      "make tabs and trailing spaces visible
 set lazyredraw                                    "prevent redraw while executing macros
+set re=2                                          "prevent vim from freezing on TypeScript files
 set list
 set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
 let g:snipMate = { 'snippet_version' : 1 }
@@ -103,7 +106,7 @@ map <leader>n :NERDTree<cr>
 map <Leader>w <C-w>w
 map <leader>, :Files<cr>
 map <leader>g :Rg<cr>
-map <leader>gb :Gblame<cr>
+map <leader>gb :Git blame<cr>
 map <leader>go :Gbrowse<cr>
 map <leader>a :ALEToggle<cr>
 map <leader>m :Emodel<cr>
@@ -112,7 +115,7 @@ map <leader>c :Econtroller<cr>
 " map <leader>t :Eunittest<cr>
 map <leader>ct <C-]><cr>
 map <leader>s /\c
-map <leader>d orequire 'pry'; binding.pry<esc>==<cr>
+map <leader>d obinding.pry<esc>==<cr>
 map <leader>t :!bundle exec ruby -I "test" %<cr>
 map <leader>tr :!bundle exec rspec %<cr>
 set tags=~/code/tags

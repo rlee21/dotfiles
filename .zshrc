@@ -37,22 +37,21 @@ alias ga="git add --all ."
 alias gp="git push"
 alias gd="git diff"
 alias gl="git log --oneline"
+alias dcb="docker-compose build"
+alias dcu="docker-compose up"
 # alias dc='docker rm $(docker ps -a -f status=exited -q)'
 alias be="bundle exec"
 alias bi="bundle install"
 alias yi="yarn install"
-alias rge='rg -i --iglob !'\''*.yml'\'' --iglob !'\''*.sql'\'' --iglob !'\''*test*'\'
-# alias ks='k8s-get-secret mysql-root-password'
+alias rge='rg -i --iglob !'\''*.yml'\'' --iglob !'\''*.sql'\'' --iglob !'\''*test*'\'' --iglob !'\''*spec*'\'
+alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
+alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
+alias myip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com'
 
 #########################
 # Environment Variables
 #########################
 export EDITOR='vim'
-# export DB_HOST=127.0.0.1
-# export DB_PORT=3306
-# export DB_PORT=13306
-# export DB_USER=root
-# export DB_PASS=root
 
 #########################
 # History
@@ -89,12 +88,14 @@ function ta {
 #########################
 # Emacs Key Bindings
 bindkey -e
+
 # Case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # Advanced tab completion
 autoload -U compinit
 compinit
+
 # fzf fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
