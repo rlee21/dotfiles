@@ -30,6 +30,7 @@ Plugin 'dsfcode/hive.vim.git'           "syntax highlighting for Hive
 Plugin 'morhetz/gruvbox'                "color scheme
 Plugin 'slim-template/vim-slim.git'     "syntax highlighting for slim
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'fatih/vim-go'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'webdevel/tabulous'              "enhance tabline including numbered tabs
 call vundle#end()
@@ -114,9 +115,18 @@ map <leader>v :Eview<cr>
 map <leader>c :Econtroller<cr>
 " map <leader>t :Eunittest<cr>
 map <leader>ct <C-]><cr>
+map <leader>c :!
 map <leader>s /\c
 map <leader>d obinding.pry<esc>==<cr>
 map <leader>t :!bundle exec ruby -I "test" %<cr>
 map <leader>tr :!bundle exec rspec %<cr>
 set tags=~/code/tags
 " ctags -R --exclude=.git --exclude=log --exclude="*.js" --exclude="*.sql" --exclude="*.py" *
+"
+"################################
+" Misc
+"################################
+" find and replace multiple files
+" vim `find . -name '*.rb' -exec grep -le 'text being searched' {} \;`
+" :bufdo %s/old text/new text/gce
+" :bufdo wq!
