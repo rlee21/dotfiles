@@ -55,11 +55,6 @@ alias myip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com'
 # Environment Variables
 #########################
 export EDITOR='vim'
-export SHIFT_POSTGRES_DOCKER_ENABLED=true
-export SHIFT_PYTHON3_ENABLED=true
-export SHIFT_GO_VERSION=1.18.8
-export SHIFT_GO_DARWIN_AMD64_SHA=9d696d431cd255f3657387019dfef34d6edda9a36843244b207d8822cd5b197f
-export SHIFT_GO_LINUX_AMD64_SHA=4d854c7bad52d53470cf32f1b287a5c0c441dc6b98306dea27358e099698142a
 
 #########################
 # History
@@ -125,15 +120,6 @@ export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/openjdk@8/include"
 
 # Kubernetes cli
-function kget() {
-    # usage kget <account> [clustername]
-    local account=$1
-    aws sso login --profile ${account}
-    export AWS_PROFILE=${account}
-    local cluster_name=${2:-}
-    aws eks update-kubeconfig --name ${cluster_name} --kubeconfig ~/shift/${cluster_name} --alias ${cluster_name}
-    export KUBECONFIG=~/shift/${cluster_name}
-}
 alias k=kubectl
 alias kaf='kubectl apply -f'
 alias kca='_kca(){ kubectl "$@" --all-namespaces;  unset -f _kca; }; _kca'
