@@ -33,6 +33,11 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'webdevel/tabulous'              "enhance tabline including numbered tabs
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plugin 'jparise/vim-graphql'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()
 filetype on
 
@@ -82,6 +87,7 @@ set lazyredraw                                    "prevent redraw while executin
 set re=2                                          "prevent vim from freezing on TypeScript files
 set list
 set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
+set clipboard=unnamedplus                         "+ register as the default register
 let g:snipMate = { 'snippet_version' : 1 }
 " highlight colorcolumn ctermbg=grey
 call matchadd('colorcolumn', '\%80v', 100)      "set colorcolumn highlight for 80th character
@@ -96,6 +102,8 @@ autocmd FileType javascript setlocal commentstring=//%s
 autocmd FileType sql,hive setlocal commentstring=--%s
 autocmd FileType html,markdown setlocal commentstring=<!--\ %s\ -->
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 "################################
 " Key Bindings
@@ -103,24 +111,33 @@ autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 inoremap kj <Esc>
 cnoremap kj <Esc>
 let mapleader = ","
-map <leader>n :NERDTree<cr>
-map <Leader>w <C-w>w
-map <leader>, :Files<cr>
-map <leader>g :Rg<cr>
-map <leader>gb :Git blame<cr>
-map <leader>go :Gbrowse<cr>
-map <leader>a :ALEToggle<cr>
-map <leader>m :Emodel<cr>
-map <leader>v :Eview<cr>
-map <leader>c :Econtroller<cr>
-" map <leader>t :Eunittest<cr>
-map <leader>ct <C-]><cr>
-map <leader>c :!
-map <leader>s /\c
-map <leader>d obinding.pry<esc>==<cr>
-map <leader>t :!bundle exec ruby -I "test" %<cr>
-map <leader>tr :!bundle exec rspec %<cr>
-set tags=~/code/tags
+nmap <leader>n :NERDTree<cr>
+nmap <Leader>w <C-w>w
+nmap <leader>, :Files<cr>
+nmap <leader>g :Rg<cr>
+nmap <leader>gb :Git blame<cr>
+nmap <leader>go :Gbrowse<cr>
+nmap <leader>a :ALEToggle<cr>
+nmap <leader>m :Emodel<cr>
+nmap <leader>v :Eview<cr>
+nmap <leader>c :Econtroller<cr>
+" nmap <leader>t :Eunittest<cr>
+nmap <leader>ct <C-]><cr>
+nmap <leader>c :!
+nmap <leader>s /\c
+nmap <leader>d obinding.pry<esc>==<cr>
+nmap <leader>t :!bundle exec ruby -I "test" %<cr>
+nmap <leader>tr :!bundle exec rspec %<cr>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
+" set tags=~/code/tags
 " ctags -R --exclude=.git --exclude=log --exclude="*.js" --exclude="*.sql" --exclude="*.py" *
 "
 "################################
@@ -130,3 +147,11 @@ set tags=~/code/tags
 " vim `find . -name '*.rb' -exec grep -le 'text being searched' {} \;`
 " :bufdo %s/old text/new text/gce
 " :bufdo wq!
+"
+"################################
+" LSP
+"################################
+" Use extensions for TypeScript language server
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ ]
