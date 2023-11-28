@@ -90,7 +90,7 @@ set noswapfile | set nowritebackup | set nobackup "run faster by turning off swa
 set clipboard=unnamedplus                         "+ register as the default register
 let g:snipMate = { 'snippet_version' : 1 }
 " highlight colorcolumn ctermbg=grey
-call matchadd('colorcolumn', '\%80v', 100)      "set colorcolumn highlight for 80th character
+call matchadd('colorcolumn', '\%80v', 100)        "set colorcolumn highlight for 80th character
 
 "################################
 " Auto Commands
@@ -155,3 +155,20 @@ nmap <leader>rn <Plug>(coc-rename)
 let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ ]
+
+" Use <Tab> for trigger completion and navigate to the next complete item
+inoremap <silent><expr> <Tab>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <CR> to confirm completion, `<C-g>u` means break undo chain at
+" current position. Coc only does snippet and additional edit on confirm.
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                            \: "\<C-g>u\<CR>"
