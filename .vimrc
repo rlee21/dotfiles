@@ -65,8 +65,9 @@ syntax on
 colorscheme gruvbox
 set background=dark
 set showmode
-set tabstop=4
-set shiftwidth=4
+set autoindent expandtab tabstop=2 shiftwidth=2
+" set tabstop=4
+" set shiftwidth=4
 set expandtab
 " set noexpandtab
 set number relativenumber
@@ -134,7 +135,7 @@ nmap <leader>tr :!bundle exec rspec %<cr>
 " nmap <silent> gr <Plug>(coc-references)
 " nmap <silent> [g <Plug>(coc-diagnostic-prev)
 " nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 " nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 " nmap <leader>do <Plug>(coc-codeaction)
 " nmap <leader>rn <Plug>(coc-rename)
@@ -152,9 +153,10 @@ nmap <leader>tr :!bundle exec rspec %<cr>
 "################################
 " CoC (LSP)
 "################################
+" :CocDisable to disable
 " let g:coc_start_at_startup = v:false
-
 " Use extensions for TypeScript language server
+
 let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ ]
@@ -176,7 +178,7 @@ set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
-" no select by `"suggest.noselect": true` in your configuration file
+" no select by `"suggest.noselect": true` in your configuration file (coc-settings.json)
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
 inoremap <silent><expr> <TAB>
