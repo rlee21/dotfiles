@@ -38,6 +38,7 @@ Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plugin 'jparise/vim-graphql'
 Plugin 'github/copilot.vim'
+Plugin 'DanBradbury/copilot-chat.vim'
 " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()
 filetype on
@@ -114,25 +115,25 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 inoremap kj <Esc>
 cnoremap kj <Esc>
 let mapleader = ","
-nmap <leader>n :NERDTree<cr>
-nmap <Leader>w <C-w>w
-nmap <leader>, :Files<cr>
-nmap <leader>g :Rg<cr>
-nmap <leader>gb :Git blame<cr>
-nmap <leader>go :Gbrowse<cr>
-nmap <leader>a :ALEToggle<cr>
-" nmap <leader>m :Emodel<cr>
-" nmap <leader>c :Econtroller<cr>
-" nmap <leader>v :Eview<cr>
-" nmap <leader>t :Eunittest<cr>
-nmap <leader>ct <C-]><cr>
-nmap <leader>c :!clear;
-nmap <leader>s /\c
-nmap <leader>d obinding.pry<esc>==<cr>
-nmap <leader>t :!clear; RAILS_ENV=test bundle exec rspec %<cr>
-nmap <leader>buf :bufdo bd<CR>
+nnoremap <leader>n :NERDTree<cr>
+nnoremap <Leader>w <C-w>w
+nnoremap <leader>, :Files<cr>
+nnoremap <leader>g :Rg<cr>
+nnoremap <leader>gb :Git blame<cr>
+nnoremap <leader>go :Gbrowse<cr>
+nnoremap <leader>a :ALEToggle<cr>
+" nnoremap <leader>m :Emodel<cr>
+" nnoremap <leader>c :Econtroller<cr>
+" nnoremap <leader>v :Eview<cr>
+" nnoremap <leader>t :Eunittest<cr>
+nnoremap <leader>ct <C-]><cr>
+nnoremap <leader>c :!clear;
+nnoremap <leader>s /\c
+nnoremap <leader>d obinding.pry<esc>==<cr>
+nnoremap <leader>t :!clear; RAILS_ENV=test bundle exec rspec %<cr>
+nnoremap <leader>buf :bufdo bd<CR>
 
-let g:copilot_enabled = 0
+let g:copilot_enabled = 1
 function! ToggleCopilot()
   if g:copilot_enabled
     let g:copilot_enabled = 0
@@ -144,18 +145,30 @@ function! ToggleCopilot()
     echo "Copilot enabled"
   endif
 endfunction
-nmap <leader>cp :call ToggleCopilot()<cr>
+" nnoremap <leader>cp :call ToggleCopilot()<cr>
 
-" nmap <leader>t :!bundle exec ruby -I "test" %<cr>
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gr <Plug>(coc-references)
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Open a new Copilot Chat window
+nnoremap <leader>cc :CopilotChatOpen<CR>
+
+" Focus existing chat window
+" nnoremap <leader>cf :CopilotChatFocus<CR>
+
+" Add visual selection to chat
+vmap <leader>ca <Plug>CopilotChatAddSelection
+
+" Reset chat conversation
+nnoremap <leader>cr :CopilotChatReset<CR>
+
+" nnoremap <leader>t :!bundle exec ruby -I "test" %<cr>
+" nnoremap <silent> gd <Plug>(coc-definition)
+" nnoremap <silent> gy <Plug>(coc-type-definition)
+" nnoremap <silent> gr <Plug>(coc-references)
+" nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+" nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 " nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 " nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-" nmap <leader>do <Plug>(coc-codeaction)
-" nmap <leader>rn <Plug>(coc-rename)
+" nnoremap <leader>do <Plug>(coc-codeaction)
+" nnoremap <leader>rn <Plug>(coc-rename)
 " set tags=~/code/tags
 " ctags -R --exclude=.git --exclude=log --exclude="*.js" --exclude="*.sql" --exclude="*.py" *
 "################################
@@ -222,14 +235,14 @@ nmap <leader>cp :call ToggleCopilot()<cr>
 
 " " Use `[g` and `]g` to navigate diagnostics
 " " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+" nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " " GoTo code navigation
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+" nnoremap <silent> gd <Plug>(coc-definition)
+" nnoremap <silent> gy <Plug>(coc-type-definition)
+" nnoremap <silent> gi <Plug>(coc-implementation)
+" nnoremap <silent> gr <Plug>(coc-references)
 
 " " Use K to show documentation in preview window
 " nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -246,11 +259,11 @@ nmap <leader>cp :call ToggleCopilot()<cr>
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " " Symbol renaming
-" nmap <leader>rn <Plug>(coc-rename)
+" nnoremap <leader>rn <Plug>(coc-rename)
 
 " " Formatting selected code
 " xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
+" nnoremap <leader>f  <Plug>(coc-format-selected)
 
 " augroup mygroup
 "   autocmd!
@@ -263,22 +276,22 @@ nmap <leader>cp :call ToggleCopilot()<cr>
 " " Applying code actions to the selected code block
 " " Example: `<leader>aap` for current paragraph
 " xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
+" nnoremap <leader>a  <Plug>(coc-codeaction-selected)
 
 " " Remap keys for applying code actions at the cursor position
-" nmap <leader>ac  <Plug>(coc-codeaction-cursor)
+" nnoremap <leader>ac  <Plug>(coc-codeaction-cursor)
 " " Remap keys for apply code actions affect whole buffer
-" nmap <leader>as  <Plug>(coc-codeaction-source)
+" nnoremap <leader>as  <Plug>(coc-codeaction-source)
 " " Apply the most preferred quickfix action to fix diagnostic on the current line
-" nmap <leader>qf  <Plug>(coc-fix-current)
+" nnoremap <leader>qf  <Plug>(coc-fix-current)
 
 " " Remap keys for applying refactor code actions
-" nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+" nnoremap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 " xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
-" nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+" nnoremap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 
 " " Run the Code Lens action on the current line
-" nmap <leader>cl  <Plug>(coc-codelens-action)
+" nnoremap <leader>cl  <Plug>(coc-codelens-action)
 
 " " Map function and class text objects
 " " NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -303,7 +316,7 @@ nmap <leader>cp :call ToggleCopilot()<cr>
 
 " " Use CTRL-S for selections ranges
 " " Requires 'textDocument/selectionRange' support of language server
-" nmap <silent> <C-s> <Plug>(coc-range-select)
+" nnoremap <silent> <C-s> <Plug>(coc-range-select)
 " xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " " Add `:Format` command to format current buffer
