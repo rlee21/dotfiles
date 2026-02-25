@@ -16,6 +16,8 @@ Plugin 'vim-syntastic/syntastic'        "syntax checker
 Plugin 'w0rp/ale'                       "syntax checker
 Plugin 'mattn/emmet-vim'                "html and css snippets
 Plugin 'prettier/vim-prettier'          "code formatter
+Plugin 'ngmy/vim-rubocop'
+Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'tpope/vim-commentary'           "commenting blocks of code
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -115,22 +117,24 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 inoremap kj <Esc>
 cnoremap kj <Esc>
 let mapleader = ","
-nnoremap <leader>n :NERDTree<cr>
+nnoremap <leader>n :NERDTree<CR>
 nnoremap <Leader>w <C-w>w
-nnoremap <leader>, :Files<cr>
-nnoremap <leader>g :Rg<cr>
-nnoremap <leader>gb :Git blame<cr>
-nnoremap <leader>go :Gbrowse<cr>
-nnoremap <leader>a :ALEToggle<cr>
-" nnoremap <leader>m :Emodel<cr>
-" nnoremap <leader>c :Econtroller<cr>
-" nnoremap <leader>v :Eview<cr>
-" nnoremap <leader>t :Eunittest<cr>
-nnoremap <leader>ct <C-]><cr>
+nnoremap <leader>, :Files<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>go :Gbrowse<CR>
+nnoremap <leader>a :ALEToggle<CR>
+nnoremap <leader>f :Autoformat<CR>
+vnoremap <leader>f :Autoformat<CR>
+" nnoremap <leader>m :Emodel<CR>
+" nnoremap <leader>c :Econtroller<CR>
+" nnoremap <leader>v :Eview<CR>
+" nnoremap <leader>t :Eunittest<CR>
+nnoremap <leader>ct <C-]><CR>
 nnoremap <leader>c :!clear;
 nnoremap <leader>s /\c
-nnoremap <leader>d obinding.pry<esc>==<cr>
-nnoremap <leader>t :!clear; RAILS_ENV=test bundle exec rspec %<cr>
+nnoremap <leader>d obinding.pry<esc>==<CR>
+nnoremap <leader>t :!clear; RAILS_ENV=test bundle exec rspec %<CR>
 nnoremap <leader>buf :bufdo bd<CR>
 
 let g:copilot_enabled = 1
@@ -145,7 +149,7 @@ function! ToggleCopilot()
     echo "Copilot enabled"
   endif
 endfunction
-" nnoremap <leader>cp :call ToggleCopilot()<cr>
+" nnoremap <leader>cp :call ToggleCopilot()<CR>
 
 " Open a new Copilot Chat window
 nnoremap <leader>cc :CopilotChatOpen<CR>
@@ -159,14 +163,17 @@ vmap <leader>ca <Plug>CopilotChatAddSelection
 " Reset chat conversation
 nnoremap <leader>cr :CopilotChatReset<CR>
 
-" nnoremap <leader>t :!bundle exec ruby -I "test" %<cr>
+" Copilot usage stats
+nnoremap <leader>cu :CopilotChatUsage<CR>
+
+" nnoremap <leader>t :!bundle exec ruby -I "test" %<CR>
 " nnoremap <silent> gd <Plug>(coc-definition)
 " nnoremap <silent> gy <Plug>(coc-type-definition)
 " nnoremap <silent> gr <Plug>(coc-references)
 " nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
 " nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
-" nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-" nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+" nnoremap <silent> <space>d :<C-u>CocList diagnostics<CR>
+" nnoremap <silent> <space>s :<C-u>CocList -I symbols<CR>
 " nnoremap <leader>do <Plug>(coc-codeaction)
 " nnoremap <leader>rn <Plug>(coc-rename)
 " set tags=~/code/tags
@@ -308,8 +315,8 @@ nnoremap <leader>cr :CopilotChatReset<CR>
 " if has('nvim-0.4.0') || has('patch-8.2.0750')
 "   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 "   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-"   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-"   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<CR>" : "\<Right>"
+"   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<CR>" : "\<Left>"
 "   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 "   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 " endif
@@ -335,15 +342,15 @@ nnoremap <leader>cr :CopilotChatReset<CR>
 
 " " Mappings for CoCList
 " " Show all diagnostics
-" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<CR>
 " " Manage extensions
-" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<CR>
 " " Show commands
-" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<CR>
 " " Find symbol of current document
-" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<CR>
 " " Search workspace symbols
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<CR>
 " " Do default action for next item
 " nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " " Do default action for previous item
