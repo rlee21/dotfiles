@@ -40,7 +40,7 @@ Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plugin 'jparise/vim-graphql'
 Plugin 'github/copilot.vim'
-Plugin 'DanBradbury/copilot-chat.vim'
+" Plugin 'DanBradbury/copilot-chat.vim'
 " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()
 filetype on
@@ -151,20 +151,21 @@ function! ToggleCopilot()
 endfunction
 " nnoremap <leader>cp :call ToggleCopilot()<CR>
 
-" Open a new Copilot Chat window
-nnoremap <leader>cc :CopilotChatOpen<CR>
+" Copilot Chat
+" Open new window
+" nnoremap <leader>cc :CopilotChatOpen<CR>
 
-" Focus existing chat window
+" Focus existing window
 " nnoremap <leader>cf :CopilotChatFocus<CR>
 
 " Add visual selection to chat
-vmap <leader>ca <Plug>CopilotChatAddSelection
+" vmap <leader>ca <Plug>CopilotChatAddSelection
 
-" Reset chat conversation
-nnoremap <leader>cr :CopilotChatReset<CR>
+" Reset conversation
+" nnoremap <leader>cr :CopilotChatReset<CR>
 
 " Copilot usage stats
-nnoremap <leader>cu :CopilotChatUsage<CR>
+" nnoremap <leader>cu :CopilotChatUsage<CR>
 
 " nnoremap <leader>t :!bundle exec ruby -I "test" %<CR>
 " nnoremap <silent> gd <Plug>(coc-definition)
