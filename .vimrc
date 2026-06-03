@@ -30,6 +30,7 @@ Plugin 'garbas/vim-snipmate'            "code snippet with tab completion
 Plugin 'honza/vim-snippets'             "code snippet with tab completion
 Plugin 'dsfcode/hive.vim.git'           "syntax highlighting for Hive
 Plugin 'morhetz/gruvbox'                "color scheme
+Plugin 'catppuccin/vim'                 "color scheme
 Plugin 'slim-template/vim-slim.git'     "syntax highlighting for slim
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
@@ -66,7 +67,8 @@ hi link coffeeSemicolonError NONE
 " Appearance
 "################################
 syntax on
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme catppuccin_mocha
 set background=dark
 set showmode
 set autoindent expandtab tabstop=2 shiftwidth=2
@@ -95,7 +97,7 @@ set clipboard=unnamed,unnamedplus                 "set registers for copying to 
 
 let g:snipMate = { 'snippet_version' : 1 }
 " highlight colorcolumn ctermbg=grey
-call matchadd('colorcolumn', '\%80v', 100)        "set colorcolumn highlight for 80th character
+" call matchadd('colorcolumn', '\%80v', 100)        "set colorcolumn highlight for 80th character
 
 "################################
 " Auto Commands
