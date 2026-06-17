@@ -1,0 +1,44 @@
+{
+  "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.13.2/schema.json",
+  "applyBuiltinDefaults": true,
+  "version": "0.9.0-20260327",
+  "onboarding": {
+    "completed": true,
+    "completedAt": "2026-06-17T18:44:45.841Z",
+    "version": "0.9.0-20260327"
+  },
+  "features": {
+    "pathAccess": true
+  },
+  "pathAccess": {
+    "mode": "ask"
+  },
+  "protectedPaths": [
+    "**/.env*",
+    "**/*.env",
+    "~/.ssh/**",
+    "~/.aws/**",
+    "~/.gcp/**",
+    "~/.azure/**",
+    "**/*.key",
+    "**/*.pem",
+    "**/*.crt",
+    "**/*.cert",
+    "**/*.gpg",
+    "**/*.pgp",
+    "./.git/**",
+    "~/.zshrc",
+    "~/.bashrc",
+    "~/.bash_history",
+    "**/config/application.yml",
+    "**/secrets/**",
+    "**/private/**"
+  ],
+  "dangerousCommands": [
+    "rm -rf *",
+    "sudo *",
+    "ssh *",
+    "scp *",
+    "git push --force *"
+  ]
+}
