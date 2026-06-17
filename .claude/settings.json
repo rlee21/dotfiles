@@ -1,0 +1,55 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Edit",
+      "Write"
+    ],
+    "deny": [
+      "Read(**/config/application.yml)",
+      "Read(~/.zshrc)",
+      "Read(~/.bashrc)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(./.git/**)",
+      "Read(**/*.env)",
+      "Read(**/*.cert)",
+      "Read(**/*.crt)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Read(**/*.gpg)",
+      "Read(**/*.pgp)",
+      "Bash(rm *)",
+      "Bash(del *)",
+      "Bash(rmdir *)",
+      "Bash(unlink *)",
+      "Bash(sudo *)",
+      "Bash(ftp *)",
+      "Bash(sftp *)",
+      "Bash(scp *)",
+      "Bash(ssh *)",
+      "Bash(git config --global *)",
+      "Bash(git branch -d *)",
+      "Bash(git branch -D *)",
+      "Bash(git push --force *)",
+      "Bash(git tag -d *)",
+      "Bash(git stash drop *)",
+      "Bash(git stash clear *)",
+      "Bash(git remote add *)",
+      "Bash(git remote remove *)",
+      "Bash(git remote set-url *)"
+    ]
+  },
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/roblee/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "atlassian@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "effortLevel": "medium"
+}

@@ -1,0 +1,75 @@
+# ~/.codex/config.toml
+
+# ======================
+# Global Settings
+# ======================
+
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+
+# Security settings
+approval_policy = "on-request"     # Best balance: asks before risky actions
+sandbox_mode = "workspace-write"
+
+# ======================
+# Protected Paths (deny list)
+# ======================
+
+[[sandbox.protected_paths]]
+pattern = "**/*.env"
+
+[[sandbox.protected_paths]]
+pattern = "**/*.env.*"
+
+[[sandbox.protected_paths]]
+pattern = "**/*.key"
+
+[[sandbox.protected_paths]]
+pattern = "**/*.pem"
+
+[[sandbox.protected_paths]]
+pattern = "**/*.crt"
+
+[[sandbox.protected_paths]]
+pattern = "**/*.cert"
+
+[[sandbox.protected_paths]]
+pattern = "**/*.gpg"
+
+[[sandbox.protected_paths]]
+pattern = "**/*.pgp"
+
+[[sandbox.protected_paths]]
+pattern = "**/config/application.yml"
+
+[[sandbox.protected_paths]]
+pattern = "**/.git/**"
+
+[[sandbox.protected_paths]]
+pattern = ".git/**"
+
+# Home directory sensitive files
+[[sandbox.protected_paths]]
+pattern = "~/.ssh/**"
+
+[[sandbox.protected_paths]]
+pattern = "~/.aws/**"
+
+[[sandbox.protected_paths]]
+pattern = "~/.zshrc"
+
+[[sandbox.protected_paths]]
+pattern = "~/.bashrc"
+
+# ======================
+# Project-specific settings
+# ======================
+
+[projects."/Users/roblee/code/staff-portal-rails"]
+trust_level = "trusted"
+
+[projects."/Users/roblee/code/tour-registration"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
