@@ -1,0 +1,11 @@
+{
+  "defaultModel": "@cf/moonshotai/kimi-k2.6",
+  "defaultProvider": "cloudflare-workers-ai",
+  "defaultThinkingLevel": "medium",
+  "lastChangelogVersion": "0.79.6",
+  "packages": [
+    "npm:@ollama/pi-web-search"
+  ],
+  "hideThinkingBlock": true,
+  "theme": "catppuccin-macchiato"
+}
