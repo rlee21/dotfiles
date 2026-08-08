@@ -36,8 +36,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'webdevel/tabulous'              "enhance tabline including numbered tabs
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
+" Plugin 'leafgarland/typescript-vim'
+" Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plugin 'jparise/vim-graphql'
 Plugin 'github/copilot.vim'
@@ -90,7 +90,7 @@ set gcr=a:blinkon0                                "disable cursor blink
 set visualbell                                    "no sounds"
 set listchars=tab:>·,trail:·                      "make tabs and trailing spaces visible
 set lazyredraw                                    "prevent redraw while executing macros
-set re=2                                          "prevent vim from freezing on TypeScript files
+" set re=2                                          "prevent vim from freezing on TypeScript files
 set list
 set noswapfile | set nowritebackup | set nobackup "run faster by turning off swap files/backup
 set clipboard=unnamed,unnamedplus                 "set registers for copying to system clipboard
