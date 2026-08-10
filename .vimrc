@@ -103,6 +103,7 @@ let g:snipMate = { 'snippet_version' : 1 }
 " Auto Commands
 "################################
 " autocmd FileType python,ruby,javascript setlocal colorcolumn=80 "set colorcolumn highlight for 80th character
+autocmd FileType ruby highlight clear Error
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType python,ruby,sh setlocal commentstring=#%s
@@ -360,4 +361,3 @@ endfunction
 " nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " " Resume latest coc list
 " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
